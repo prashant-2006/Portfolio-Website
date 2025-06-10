@@ -70,7 +70,7 @@ const Navbar = () => {
 
       {/* ✅ Mobile Nav Links */}
       {navOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-950 px-6 pb-4 pt-4 space-y-4 shadow-lg border-t-2 border-gray-900">
+        <div className="md:hidden bg-white dark:bg-gray-950 px-6 pb-4 pt-4 space-y-4 shadow-lg border-t-2 border-gray-200 dark:border-gray-900">
           {navLinks.map((link) => (
             <a
               key={link.name}
