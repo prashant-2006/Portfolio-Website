@@ -28,7 +28,10 @@ const Navbar = () => {
     <nav className="bg-white dark:bg-gray-950 fixed top-0 w-full z-50 shadow dark:shadow-md transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="text-2xl font-semibold tracking-tight text-rose-500">
+        <a
+          href="#home"
+          className="text-2xl font-semibold tracking-tight text-rose-500"
+        >
           &lt;Prashant /&gt;
         </a>
 
@@ -60,52 +63,61 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* ✅ Mobile Menu Button*/}
+        {/* ✅ Mobile Menu Button */}
         <div className="md:hidden p-1 rounded-md flex justify-center items-center bg-gray-200 dark:bg-gray-800">
-          <button onClick={toggleNav} className="text-black dark:text-white focus:outline-none">
-            {navOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+          <button
+            onClick={toggleNav}
+            className="text-black dark:text-white focus:outline-none"
+          >
+            {navOpen ? (
+              <XIcon className="w-6 h-6" />
+            ) : (
+              <MenuIcon className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* ✅ Mobile Nav Links */}
-      {navOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-950 px-6 pb-4 pt-4 space-y-4 shadow-lg border-t-2 border-gray-200 dark:border-gray-900">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setNavOpen(false)}
-              className="block text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500 transition"
-            >
-              {link.name}
-            </a>
-          ))}
+      {/* ✅ Mobile Nav Links with Slide Animation */}
+      <div
+        className={`md:hidden bg-white dark:bg-gray-950 px-6 overflow-hidden transition-all duration-500 ease-in-out ${
+          navOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0 py-0"
+        } shadow-lg border-t-2 border-gray-200 dark:border-gray-900`}
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            onClick={() => setNavOpen(false)}
+            className="block py-2 text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500 transition"
+          >
+            {link.name}
+          </a>
+        ))}
 
-          {/* Mobile Theme Toggle */}
-          {mounted && (
-            <button
-              onClick={() => {
-                setTheme(theme === "dark" ? "light" : "dark");
-                setNavOpen(false);
-              }}
-              className="flex items-center space-x-2 text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500 transition"
-            >
-              {theme === "dark" ? (
-                <>
-                  <MdLightMode className="w-5 h-5" />
-                  <span>Light Mode</span>
-                </>
-              ) : (
-                <>
-                  <MdDarkMode className="w-5 h-5" />
-                  <span>Dark Mode</span>
-                </>
-              )}
-            </button>
-          )}
-        </div>
-      )}
+        {/* Mobile Theme Toggle */}
+        {mounted && (
+          <button
+            onClick={() => {
+              setTheme(theme === "dark" ? "light" : "dark");
+              setNavOpen(false);
+            }}
+            className="flex items-center space-x-2 py-2 text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500 transition"
+          >
+            {theme === "dark" ? (
+              <>
+                <MdLightMode className="w-5 h-5" />
+                <span>Light Mode</span>
+              </>
+            ) : (
+              <>
+                <MdDarkMode className="w-5 h-5" />
+                <span>Dark Mode</span>
+              </>
+            )}
+          </button>
+        )}
+      </div>
     </nav>
   );
 };

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import LayoutClient from './layout-client';
 
 export const metadata = {
-  title: 'Portfolio',
+  title: 'Prashant | Portfolio',
   description: 'My personal portfolio website.',
 };
 
