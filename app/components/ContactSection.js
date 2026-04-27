@@ -34,10 +34,7 @@ const socials = [
 
 const ContactSection = () => {
   return (
-    <section
-      id="contact"
-      className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white py-16 px-6 transition-colors duration-300 scroll-mt-10 -mt-12"
-    >
+    <section id="contact" className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white py-20 px-6 transition-colors duration-300 scroll-mt-24">
       <div className="max-w-4xl mx-auto text-center">
         {/* Heading */}
         <motion.h2

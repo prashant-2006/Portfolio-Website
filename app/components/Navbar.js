@@ -18,6 +18,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "#home" },
+    { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "About", href: "#about" },
@@ -28,10 +29,7 @@ const Navbar = () => {
     <nav className="bg-white dark:bg-gray-950 fixed top-0 w-full z-50 shadow dark:shadow-md transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a
-          href="#home"
-          className="text-2xl font-semibold tracking-tight text-rose-500"
-        >
+        <a href="#home" className="text-2xl font-semibold tracking-tight text-rose-500">
           &lt;Prashant /&gt;
         </a>
 
@@ -41,7 +39,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="transition text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500"
+              className="text-sm font-medium transition text-gray-800 hover:text-rose-500 dark:text-gray-200 dark:hover:text-rose-500"
             >
               {link.name}
             </a>
@@ -51,34 +49,23 @@ const Navbar = () => {
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="transition text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500"
+              className="transition text-gray-800 hover:text-rose-500 dark:text-gray-200 dark:hover:text-rose-500"
               aria-label="Toggle Dark Mode"
             >
-              {theme === "dark" ? (
-                <MdLightMode className="w-5 h-5" />
-              ) : (
-                <MdDarkMode className="w-5 h-5" />
-              )}
+              {theme === "dark" ? <MdLightMode className="w-5 h-5" /> : <MdDarkMode className="w-5 h-5" />}
             </button>
           )}
         </div>
 
-        {/* ✅ Mobile Menu Button */}
+        {/* Mobile Menu Button */}
         <div className="md:hidden p-1 rounded-md flex justify-center items-center bg-gray-200 dark:bg-gray-800">
-          <button
-            onClick={toggleNav}
-            className="text-black dark:text-white focus:outline-none"
-          >
-            {navOpen ? (
-              <XIcon className="w-6 h-6" />
-            ) : (
-              <MenuIcon className="w-6 h-6" />
-            )}
+          <button onClick={toggleNav} className="text-black dark:text-white focus:outline-none">
+            {navOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* ✅ Mobile Nav Links with Slide Animation */}
+      {/* Mobile Nav Links with Slide Animation */}
       <div
         className={`md:hidden bg-white dark:bg-gray-950 px-6 overflow-hidden transition-all duration-500 ease-in-out ${
           navOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0 py-0"
@@ -89,31 +76,24 @@ const Navbar = () => {
             key={link.name}
             href={link.href}
             onClick={() => setNavOpen(false)}
-            className="block py-2 text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500 transition"
+            className="block py-3 font-medium text-gray-800 hover:text-rose-500 dark:text-gray-200 dark:hover:text-rose-500 transition"
           >
             {link.name}
           </a>
         ))}
 
-        {/* Mobile Theme Toggle */}
         {mounted && (
           <button
             onClick={() => {
               setTheme(theme === "dark" ? "light" : "dark");
               setNavOpen(false);
             }}
-            className="flex items-center space-x-2 py-2 text-black hover:text-rose-500 dark:text-white dark:hover:text-rose-500 transition"
+            className="flex items-center space-x-2 py-3 font-medium text-gray-800 hover:text-rose-500 dark:text-gray-200 dark:hover:text-rose-500 transition"
           >
             {theme === "dark" ? (
-              <>
-                <MdLightMode className="w-5 h-5" />
-                <span>Light Mode</span>
-              </>
+              <><MdLightMode className="w-5 h-5" /><span>Light Mode</span></>
             ) : (
-              <>
-                <MdDarkMode className="w-5 h-5" />
-                <span>Dark Mode</span>
-              </>
+              <><MdDarkMode className="w-5 h-5" /><span>Dark Mode</span></>
             )}
           </button>
         )}

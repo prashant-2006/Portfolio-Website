@@ -42,10 +42,7 @@ const aboutData = [
 
 const AboutSection = () => {
   return (
-    <section
-      id="about"
-      className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white py-16 px-6 transition-colors duration-300 scroll-mt-10 -mt-10"
-    >
+    <section id="about" className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white py-20 px-6 transition-colors duration-300 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.h2

@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const HomeSection = () => {
   return (
-    <section id="home" className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-16 py-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300 scroll-mt-12">
+    <section id="home" className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-16 pt-32 pb-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
       {/* Left content */}
       <div className="flex-1 text-center md:text-left">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 dark:text-white mb-4">
